@@ -10,7 +10,7 @@ FROM alpine:3
 ENV CRONTAB="0 * * * *"
 
 # Same group/user ids as vault container
-RUN apk add --no-cache logrotate && \
+RUN apk update --no-cache && apk add --no-cache logrotate && \
     addgroup -g 1000 crond && \
     adduser -u 100 -S -g crond -D -H -h "/tmp" crond
 
